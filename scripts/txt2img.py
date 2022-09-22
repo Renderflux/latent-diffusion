@@ -43,8 +43,8 @@ def predict(
     model=None
 ):
     if not model:
-        config = OmegaConf.load("configs/latent-diffusion/txt2img-1p4B-eval.yaml")  # TODO: Optionally download from same location as ckpt and chnage this logic
-        model = load_model_from_config(config, "models/ldm/text2img-large/model.ckpt")  # TODO: check path
+        config = OmegaConf.load("/worker/latent/configs/latent-diffusion/txt2img-1p4B-eval.yaml")  # TODO: Optionally download from same location as ckpt and chnage this logic
+        model = load_model_from_config(config, "/worker/latent/models/ldm/text2img-large/model.ckpt")  # TODO: check path
 
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     model = model.to(device)
